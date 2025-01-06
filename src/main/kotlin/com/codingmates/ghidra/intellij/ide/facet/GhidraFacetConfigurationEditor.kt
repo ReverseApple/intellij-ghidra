@@ -49,7 +49,7 @@ class GhidraFacetConfigurationEditor(
                 val fileChooserDescriptor = FileChooserDescriptorFactory.createSingleFolderDescriptor()
                     .withPathToTextConvertor(::getPresentablePath).withTextToPathConvertor(::getCanonicalPath)
 
-                textFieldWithBrowseButton(title, context.project, fileChooserDescriptor)
+                textFieldWithBrowseButton(fileChooserDescriptor.withTitle(title), context.project)
                     .bindText(installationDir.toUiPathProperty())
                     .applyToComponent { setEmptyState(GhidraBundle.message("ghidra.facet.editor.installation.empty")) }
                     .align(AlignX.FILL)
